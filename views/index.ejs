@@ -1,10 +1,47 @@
   <div class="jumbotron">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Minimal Authentication Demo</h1>
+    <p>Welcome to this minimal demo</p>
   </div>
-    <h1 class="bg-primary">Authentication!!</h1>
-    <% if (loggedIn) {%>
-      Yay... you logged in
-      <a href="/logout">logout</aL
-    <% }else { %>  <a href="/login">Login</a>
-    <%}%>
+
+  This is a minimal example of an app with authentication
+  and bootstrap styling. This uses Google OAuth2 authentication.
+  <hr>
+  <% if (loggedIn) {%>
+You are logged in as <%= user.googlename %> <br>
+with email <%= user.googleemail %>
+  <%} else {%>
+You are not logged in yet.
+  <%}%>
+
+  <!--  Here is some bootstrap styled HTML  -->
+    <div class="row">
+      <div class="col bg-warning">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr><th>A</th><th>B</th><th>C</th></td>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Row 1</td>
+                <td>check!</td>
+                <td>6/28/2021</td>
+              </tr>
+              <tr>
+                <td> Row 2</td>
+                <td> Col 2</td>
+                <td>6/28/2021</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="col bg-danger">
+        Column 2
+        <hr>
+        Nothing here
+      </div>
+      <div class="col bg-primary">
+        Column 3
+        <hr>
+        Nothing here either!
+      </div>
+    </div>
