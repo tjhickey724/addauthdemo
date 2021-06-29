@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require( 'mongoose' );
 const layouts = require("express-ejs-layouts");
+const cors = require('cors');
 
 mongoose.connect( 'mongodb://localhost/authDemo');
 
@@ -16,6 +17,7 @@ db.once('open', function() {
 });
 
 const User = require('./models/User');
+const Data = require('./models/Data');
 
 const authRouter = require('./routes/authentication');
 const isLoggedIn = authRouter.isLoggedIn
@@ -38,9 +40,54 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 app.use(authRouter)
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
+app.get('/getData/:apikey',
+  async (req,res,next) => {
+    const apikey = req.params.apikey
+    const data = await Data.findOne({apikey:apikey})
+    console.log('in getData')
+    console.log(data)
+    //console.dir(data)
+    if (data) {
+      res.json(data.data)
+    } else {
+      res.json('error: no such apikey')
+    }
+
+  })
+
+  app.get('/storeData/:apikey/:data',
+    async (req,res,next) => {
+      const apikey = req.params.apikey
+      const data = req.params.data
+      const newData = new Data({
+        data:data,
+        apikey:apikey
+      })
+      console.log('storing data='+data)
+      await Data.deleteMany({apikey:apikey})
+      await newData.save()
+      res.json("done")
+
+    })
+
+  app.post('/postData',
+    async (req,res,next) => {
+      const apikey = req.body.apikey
+      const data = req.body.data
+      const newData = new Data({
+        data:data,
+        apikey:apikey
+      })
+      await newData.save()
+      res.json("done")
+
+    })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
