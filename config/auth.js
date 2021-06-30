@@ -22,5 +22,18 @@ module.exports = {
         'password':'brandeis2.718281828zzz'
     },
 
+    'atlasAuthTim': {
+        'username':'tjhickey',
+        'password':'WcaLKkT3JJNiN8dX'
+    },
+
+    'dbURL': 'mongodb+srv://tjhickey:WcaLKkT3JJNiN8dX@cluster0.kgugl.mongodb.net/atlasAuthDemo?retryWrites=true&w=majority',
+
+    dbURL_local:'mongodb://localhost/authDemo',
+    
+    dbURL_Atlas:'mongodb+srv://tjhickey:WcaLKkT3JJNiN8dX@cluster0.kgugl.mongodb.net/atlasAuthDemo?retryWrites=true&w=majority',
 
 };
+
+// URL mongodb+srv://tjhickey:<password>@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+// Secure Password tjhickey

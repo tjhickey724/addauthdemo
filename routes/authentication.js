@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+var configAuth = require('../config/auth');
 
 /*
 this is a router to handle authentication
@@ -32,7 +33,7 @@ router.use(
         resave: false,
         saveUninitialized: false,
         store: MongoDbStore.create({
-            mongoUrl: 'mongodb://localhost/authDemo'
+            mongoUrl: configAuth.dbURL
         })
     })
 );

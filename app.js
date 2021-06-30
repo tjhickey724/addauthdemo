@@ -7,7 +7,12 @@ const mongoose = require( 'mongoose' );
 const layouts = require("express-ejs-layouts");
 const cors = require('cors');
 
-mongoose.connect( 'mongodb://localhost/authDemo');
+var configAuth = require('./config/auth');
+
+mongoose.connect(configAuth.dbURL,{ useUnifiedTopology: true })
+
+//mongoose.connect( 'mongodb://localhost/authDemo');
+
 
 
 const db = mongoose.connection;
