@@ -30,7 +30,7 @@ module.exports = {
     'dbURL': 'mongodb+srv://tjhickey:WcaLKkT3JJNiN8dX@cluster0.kgugl.mongodb.net/atlasAuthDemo?retryWrites=true&w=majority',
 
     dbURL_local:'mongodb://localhost/authDemo',
-    
+
     dbURL_Atlas:'mongodb+srv://tjhickey:WcaLKkT3JJNiN8dX@cluster0.kgugl.mongodb.net/atlasAuthDemo?retryWrites=true&w=majority',
 
 };
