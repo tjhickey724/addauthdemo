@@ -76,7 +76,7 @@ app.get('/getData/:apikey',
 
     })
 
-  app.post('/postData',
+  app.post('/storeData',
     async (req,res,next) => {
       const apikey = req.body.apikey
       const data = req.body.data
@@ -84,6 +84,7 @@ app.get('/getData/:apikey',
         data:data,
         apikey:apikey
       })
+      await Data.deleteMany({apikey:apikey})
       await newData.save()
       res.json("done")
 
