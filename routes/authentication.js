@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var configAuth = require('../config/auth');
+//var configAuth = require('../config/auth');
 
 /*
 this is a router to handle authentication

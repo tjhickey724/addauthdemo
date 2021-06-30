@@ -7,7 +7,7 @@ const mongoose = require( 'mongoose' );
 const layouts = require("express-ejs-layouts");
 const cors = require('cors');
 
-var configAuth = require('./config/auth');
+//var configAuth = require('./config/auth');
 
 const mongodb_URI = process.env.MONGODB_URI
 console.log(`mongodb_URI = ${mongodb_URI}`)
