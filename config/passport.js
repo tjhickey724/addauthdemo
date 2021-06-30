@@ -36,18 +36,20 @@ module.exports = function(passport) {
     // GOOGLE ==================================================================
     // =========================================================================
     // load the auth variables
-
+/*
     var configAuth = require('./auth');
     const clientID = configAuth.googleAuth.clientID
     const clientSecret = configAuth.googleAuth.clientSecret
     const callbackURL = configAuth.googleAuth.callbackURL
+*/
 
 
-/*
     const clientID = process.env.clientID
     const clientSecret = process.env.clientSecret
     const callbackURL = process.env.callbackURL
-*/
+
+    console.dir([clientID,clientSecret,callbackURL])
+
     passport.use(new GoogleStrategy({
 
         clientID        : clientID,

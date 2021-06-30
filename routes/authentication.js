@@ -27,13 +27,18 @@ configPassport(passport)
    store:new MongoStore({mongooseConnection: mongoose.connection})}))
    */
 
+const mongodb_URI = process.env.MONGODB_URI
+console.log(`mongodb_URI 2 = ${mongodb_URI}`)
+const dbURL = mongodb_URI
+// const dbURL = configAuth.dbURL // use this when running locally
+
 router.use(
     session({
         secret: '7f8d9s7a89fsdajkfjks',
         resave: false,
         saveUninitialized: false,
         store: MongoDbStore.create({
-            mongoUrl: configAuth.dbURL
+            mongoUrl: dbURL
         })
     })
 );

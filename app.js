@@ -9,7 +9,12 @@ const cors = require('cors');
 
 var configAuth = require('./config/auth');
 
-mongoose.connect(configAuth.dbURL,{ useUnifiedTopology: true })
+const mongodb_URI = process.env.MONGODB_URI
+console.log(`mongodb_URI = ${mongodb_URI}`)
+
+const dbURL = mongodb_URI
+// const dbURL = configAuth.dbURL
+mongoose.connect(dbURL,{ useUnifiedTopology: true })
 
 //mongoose.connect( 'mongodb://localhost/authDemo');
 
